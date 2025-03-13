@@ -112,12 +112,14 @@ onMounted(async () => {
 <style scoped>
 .layout-container {
   height: 100vh;
+  display: flex;
 }
 
 .sidebar {
   background-color: #304156;
   color: #fff;
   overflow: hidden;
+  width: 220px;
 }
 
 .sidebar-title {
@@ -130,6 +132,12 @@ onMounted(async () => {
 
 .el-menu-vertical {
   border-right: none;
+}
+
+.el-container:nth-child(2) {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
@@ -167,5 +175,48 @@ onMounted(async () => {
   background-color: #f5f7fa;
   padding: 20px;
   overflow-y: auto;
+  flex: 1;
+}
+
+/* 移动设备 - 小于768px */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 64px;  /* 收起侧边栏 */
+  }
+  .sidebar-title {
+    display: none;  /* 隐藏标题 */
+  }
+}
+
+/* 平板 - 768px到1024px */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .sidebar {
+    width: 180px;
+  }
+}
+
+/* 小屏电脑 - 1024px到1440px */
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+  .sidebar {
+    width: 200px;
+  }
+}
+
+/* 中等屏幕 - 1440px到1920px */
+@media screen and (min-width: 1440px) and (max-width: 1920px) {
+  .sidebar {
+    width: 220px;
+  }
+}
+
+/* 大屏幕 - 大于1920px */
+@media screen and (min-width: 1920px) {
+  .sidebar {
+    width: 240px;
+  }
+  .main-content {
+    max-width: 1920px;  /* 可选：限制内容最大宽度 */
+    margin: 0 auto;  /* 可选：内容居中 */
+  }
 }
 </style> 
